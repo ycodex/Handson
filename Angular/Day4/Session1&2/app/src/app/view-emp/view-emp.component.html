@@ -1,0 +1,12 @@
+<h2>Employee Details</h2>
+<h3>Id: {{employee.id}}</h3>
+<h3>Name: {{employee.name}}</h3>
+<h3>Salary: {{employee.salary | currency:"USD"}}</h3>
+<h3 *ngIf="employee.permanent">Permanent: {{employee.permanent}}</h3>
+<h3>Department Id: {{employee.department.id}}</h3>
+<h3>Department name: {{employee.department.name}}</h3>
+<h3>Skills</h3>
+<ol>
+<li *ngFor="let sk of employee.skill">{{sk.name}}</li>
+</ol>
+<h3>Date of birth: {{employee.dateOfBirth | date:"mediumDate"}}</h3>

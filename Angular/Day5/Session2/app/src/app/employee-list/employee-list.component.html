@@ -1,0 +1,15 @@
+<h1>Employee List</h1>
+<br />
+Employee Search:<input
+  id="search"
+  type="search"
+  [(ngModel)]="searchItem"
+  name="searchItem"
+  (keyup)="search()"
+/>
+<br />
+<br />
+<app-emp-info
+  *ngFor="let employee of filteredEmployees"
+  [employee]="employee"
+></app-emp-info>

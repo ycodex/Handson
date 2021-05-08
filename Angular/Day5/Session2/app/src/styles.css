@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Segoe UI, Arial;
+}
+a:visited {
+  color: blue;
+}
+a {
+  text-decoration: none;
+}
+.active-link {
+  border-bottom: Solid 1px blue;
+}

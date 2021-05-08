@@ -1,0 +1,9 @@
+<h3>Users List</h3>
+<br />
+<ul>
+  <li>id // name // username // email</li>
+  <li *ngFor="let u of users">
+    {{ u.id }} // {{ u.name }} // {{ u.username }} // {{ u.email }}
+    <button (click)="delete(u)">Delete</button>
+  </li>
+</ul>
