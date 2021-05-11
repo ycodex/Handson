@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="department1" class="com.cognizant.model.Department"
+		scope="prototype">
+
+		<property name="id" value="1" />
+
+		<property name="name" value="Computer" />
+
+	</bean>
+	<bean id="department2" class="com.cognizant.model.Department"
+		scope="prototype">
+
+		<property name="id" value="1" />
+
+		<property name="name" value="Business" />
+
+	</bean>
+	<bean id="departmentList" class="java.util.ArrayList">
+
+	
+		<constructor-arg>
+
+			<list>
+
+				<ref bean="department1"></ref>
+			
+			<ref bean="department2"></ref>
+
+			</list>
+
+		</constructor-arg>
+
+	</bean>
+	<bean id="skill" class="com.cognizant.model.Skill"
+		scope="prototype">
+
+		<property name="id" value="1" />
+
+		<property name="name" value="coding" />
+
+	</bean>
+	<bean id="e1" class="com.cognizant.model.Employee"
+		scope="prototype">
+
+		<property name="id" value="1" />
+
+		<property name="name" value="Kishan" />
+		<property name="salary" value="1000" />
+		<property name="permanent" value="true" />
+
+		<property name="dateOfBirth" value="1/12/1999" />
+		<property name="department" ref="department1" />
+
+		<property name="skill" ref="skill" />
+	</bean>
+	<bean id="e2" class="com.cognizant.model.Employee"
+		scope="prototype">
+
+		<property name="id" value="2" />
+
+		<property name="name" value="Varun" />
+		<property name="salary" value="1000" />
+		<property name="permanent" value="true" />
+
+		<property name="dateOfBirth" value="2/12/1999" />
+		<property name="department" ref="department2" />
+
+		<property name="skill" ref="skill" />
+	</bean>
+	<bean id="e3" class="com.cognizant.model.Employee"
+		scope="prototype">
+
+		<property name="id" value="3" />
+
+		<property name="name" value="Yashwanth" />
+		<property name="salary" value="1000" />
+		<property name="permanent" value="true" />
+
+		<property name="dateOfBirth" value="3/12/1999" />
+		<property name="department" ref="department1" />
+
+		<property name="skill" ref="skill" />
+	</bean>
+	<bean id="empList" class="java.util.ArrayList">
+
+		<constructor-arg>
+
+			<list>
+
+				<ref bean="e1"></ref>
+
+				<ref bean="e2"></ref>
+
+				<ref bean="e3"></ref>
+
+			</list>
+
+		</constructor-arg>
+
+	</bean>
+</beans>

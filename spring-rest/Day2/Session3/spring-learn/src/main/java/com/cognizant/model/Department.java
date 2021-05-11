@@ -1,0 +1,49 @@
+package com.cognizant.model;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.NumberFormat;
+
+public class Department {
+	@NotNull
+	@NumberFormat
+	private int id;
+	@NotNull
+	@NotBlank
+	@Size(min = 1, max = 30)
+	private String name;
+
+	public Department() {
+		super();
+	}
+
+	public Department(@NotNull int id, @NotNull @NotBlank @Size(min = 1, max = 30) String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + "]";
+	}
+
+}
