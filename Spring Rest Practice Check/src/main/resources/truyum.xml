@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="biriyani" class="com.cognizant.truyum.model.MenuItem"
+		scope="prototype">
+		<property name="id" value="1" />
+		<property name="name" value="Biriyani" />
+		<property name="price" value="30" />
+		<property name="active" value="true" />
+		<property name="dateOfLaunch" value="1/12/2021" />
+		<property name="category" value="Main Course" />
+		<property name="freeDelivery" value="true" />
+	</bean>
+	
+	<bean id="sandwitch" class="com.cognizant.truyum.model.MenuItem"
+		scope="prototype">
+		<property name="id" value="2" />
+		<property name="name" value="Sandwitch" />
+		<property name="price" value="10" />
+		<property name="active" value="true" />
+		<property name="dateOfLaunch" value="1/12/2021" />
+		<property name="category" value="Main course" />
+		<property name="freeDelivery" value="false" />
+	</bean>
+	
+	<bean id="brownie" class="com.cognizant.truyum.model.MenuItem"
+		scope="prototype">
+		<property name="id" value="3" />
+		<property name="name" value="Chocolate brownie" />
+		<property name="price" value="10" />
+		<property name="active" value="true" />
+		<property name="dateOfLaunch" value="1/12/2021" />
+		<property name="category" value="Dessert" />
+		<property name="freeDelivery" value="false" />
+	</bean>
+	
+	<bean id="menuList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="biriyani"></ref>
+				<ref bean="sandwitch"></ref>
+				<ref bean="brownie"></ref>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>
