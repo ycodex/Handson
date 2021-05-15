@@ -20,20 +20,38 @@ import com.cognizant.truyum.service.CartService;
 @RestController
 @RequestMapping("/carts")
 public class CartController {
+
 	@Autowired
 	CartService cartService;
 	private static final Logger LOGGER = LoggerFactory.getLogger(TruyumApplication.class);
 
+	/**
+	 * 
+	 * @param userId
+	 * @param menuItemId
+	 * @throws CartEmptyException
+	 */
 	@PostMapping("/{userId}/{menuItemId}")
-	public void addCartItem(@PathVariable String userId, @PathVariable long menuItemId) {
+	public void addCartItem(@PathVariable String userId, @PathVariable long menuItemId) throws CartEmptyException {
 		cartService.addCartItem(userId, menuItemId);
 	}
 
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 * @throws CartEmptyException
+	 */
 	@GetMapping("/{userId}")
 	public List<MenuItem> getcartItems(@PathVariable String userId) throws CartEmptyException {
 		return cartService.getAllCartItems(userId);
 	}
 
+	/**
+	 * 
+	 * @param userId
+	 * @param menuItemId
+	 */
 	@DeleteMapping("/{userId}/{menuItemId}")
 	public void deleteCartItem(@PathVariable String userId, @PathVariable long menuItemId) {
 		LOGGER.info("inside controller");

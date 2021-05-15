@@ -18,14 +18,31 @@ public class CartService {
 	CartDaoCollectionImpl cartDaoCollectionImpl;
 	private static final Logger LOGGER = LoggerFactory.getLogger(TruyumApplication.class);
 
-	public void addCartItem(String userId, long menuItemId) {
+	/**
+	 * 
+	 * @param userId
+	 * @param menuItemId
+	 * @throws CartEmptyException
+	 */
+	public void addCartItem(String userId, long menuItemId) throws CartEmptyException {
 		cartDaoCollectionImpl.addCartItem(userId, menuItemId);
 	}
 
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 * @throws CartEmptyException
+	 */
 	public List<MenuItem> getAllCartItems(String userId) throws CartEmptyException {
 		return cartDaoCollectionImpl.getAllCartItems(userId);
 	}
 
+	/**
+	 * 
+	 * @param userId
+	 * @param menuItemId
+	 */
 	public void deleteCartItems(String userId, long menuItemId) {
 		LOGGER.info("inside Service");
 		cartDaoCollectionImpl.removeCartItem(userId, menuItemId);

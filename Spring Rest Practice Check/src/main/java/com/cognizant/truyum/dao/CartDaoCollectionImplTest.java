@@ -7,7 +7,7 @@ import com.cognizant.truyum.model.MenuItem;
 
 public class CartDaoCollectionImplTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CartEmptyException {
 		Scanner sc = new Scanner(System.in);
 		String choice;
 		int itemAdded = 0;
@@ -60,7 +60,7 @@ public class CartDaoCollectionImplTest {
 		sc.close();
 	}
 
-	public static void testAddCartItem() {
+	public static void testAddCartItem() throws CartEmptyException {
 		CartDao cartDao = new CartDaoCollectionImpl();
 		cartDao.addCartItem("1", 2);
 	}

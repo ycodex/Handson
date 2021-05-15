@@ -24,7 +24,7 @@ public class CartDaoCollectionImpl implements CartDao {
 		}
 	}
 
-	public void addCartItem(String userId, long menuItemId) {
+	public void addCartItem(String userId, long menuItemId) throws CartEmptyException {
 		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
 		MenuItem menuItem = menuItemDao.getMenuItem(menuItemId);
 

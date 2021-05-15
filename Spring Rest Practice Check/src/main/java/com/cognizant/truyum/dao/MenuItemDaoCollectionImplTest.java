@@ -8,7 +8,7 @@ import com.cognizant.truyum.util.DateUtil;
 
 public class MenuItemDaoCollectionImplTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CartEmptyException {
 		Scanner sc = new Scanner(System.in);
 		String choice;
 
@@ -85,7 +85,7 @@ public class MenuItemDaoCollectionImplTest {
 		sc.close();
 	}
 
-	public static void testGetMenuItemListAdmin() {
+	public static void testGetMenuItemListAdmin() throws CartEmptyException {
 		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
 		List<MenuItem> menuItemList = menuItemDao.getMenuItemListAdmin();
 
@@ -103,14 +103,14 @@ public class MenuItemDaoCollectionImplTest {
 		}
 	}
 
-	public static void testModifyMenuItem() {
-		MenuItem menuItem = new MenuItem(2, "Hotdog", 129f, true, 
-				DateUtil.convertToDate("23/12/2017"), "Main Course", false);
+	public static void testModifyMenuItem() throws CartEmptyException {
+		MenuItem menuItem = new MenuItem(2, "Hotdog", 129f, true, DateUtil.convertToDate("23/12/2017"), "Main Course",
+				false);
 		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
 		menuItemDao.modifyMenuItem(menuItem);
 	}
 
-	public static void testGetMenuItem() {
+	public static void testGetMenuItem() throws CartEmptyException {
 		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
 		System.out.println(menuItemDao.getMenuItem(2));
 	}

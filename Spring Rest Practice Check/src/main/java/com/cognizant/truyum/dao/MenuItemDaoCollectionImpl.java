@@ -40,7 +40,10 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		menuItemList = menuItems;
 	}
 
-	public List<MenuItem> getMenuItemListAdmin() {
+	public List<MenuItem> getMenuItemListAdmin() throws CartEmptyException {
+		if (menuItemList == null) {
+			throw new CartEmptyException("Menu List Empty");
+		}
 		return menuItemList;
 	}
 
@@ -58,22 +61,26 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		return customerMenuItemList;
 	}
 
-	public void modifyMenuItem(MenuItem menuItem) {
+	public void modifyMenuItem(MenuItem menuItem) throws CartEmptyException {
 		for (int i = 0; i < menuItemList.size(); i++) {
 			if (menuItemList.get(i).equals(menuItem)) {
 				menuItemList.set(i, menuItem);
 				break;
 			}
 		}
+		throw new CartEmptyException("Something went Wrong");
 	}
 
-	public MenuItem getMenuItem(long menuItemId) {
+	public MenuItem getMenuItem(long menuItemId) throws CartEmptyException {
 		MenuItem menuItem = null;
 		for (int i = 0; i < menuItemList.size(); i++) {
 			if (menuItemList.get(i).getId() == menuItemId) {
 				menuItem = menuItemList.get(i);
 				break;
 			}
+		}
+		if (menuItem == null) {
+			throw new CartEmptyException("Menu Item Id not found");
 		}
 		return menuItem;
 	}
